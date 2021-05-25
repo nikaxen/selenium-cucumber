@@ -1,4 +1,4 @@
-@predefined
+@ck12_predefined
   Feature: CK12 predefined steps test
     
     Background: User navigates to a homepage
