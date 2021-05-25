@@ -132,25 +132,29 @@ public class PredefinedSteps {
 
     @Then("Element with XPath {string} should have text as {string}")
     public void elementWithXpathShouldHaveTextAs(String xpath, String text) {
-        String actualText = getDriver().findElement(By.xpath(xpath)).getText();
+        WebElement element = new WebDriverWait(getDriver(), 10).until(ExpectedConditions.presenceOfElementLocated(By.xpath(xpath)));
+        String actualText = element.getText();
         assertThat(actualText).isEqualTo(text);
     }
 
     @Then("Element with XPath {string} should not have text as {string}")
     public void elementWithXpathShouldNotHaveTextAs(String xpath, String text) {
-        String actualText = getDriver().findElement(By.xpath(xpath)).getText();
+        WebElement element = new WebDriverWait(getDriver(), 10).until(ExpectedConditions.presenceOfElementLocated(By.xpath(xpath)));
+        String actualText = element.getText();
         assertThat(actualText).isNotEqualTo(text);
     }
 
     @Then("Element with XPath {string} should contain text {string}")
     public void elementWithXpathShouldContainText(String xpath, String text) {
-        String actualText = getDriver().findElement(By.xpath(xpath)).getText();
-        assertThat(actualText).containsIgnoringCase(text);
+        WebElement element = new WebDriverWait(getDriver(), 10).until(ExpectedConditions.presenceOfElementLocated(By.xpath(xpath)));
+        String actualText = element.getText();
+        assertThat(actualText).contains(text);
     }
 
     @Then("Element with XPath {string} should not contain text {string}")
     public void elementWithXpathShouldNotContainText(String xpath, String text) {
-        String actualText = getDriver().findElement(By.xpath(xpath)).getText();
+        WebElement element = new WebDriverWait(getDriver(), 10).until(ExpectedConditions.presenceOfElementLocated(By.xpath(xpath)));
+        String actualText = element.getText();
         assertThat(actualText).doesNotContain(text);
     }
 
