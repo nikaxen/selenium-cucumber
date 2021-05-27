@@ -73,6 +73,10 @@ public class Page {
         waitForVisible(element);
         element.sendKeys(text);
     }
+    public void sendKeys(WebElement element){
+        waitForVisible(element);
+        element.sendKeys(Keys.RETURN);
+    }
 
     public void clearElement(WebElement element){
         waitForVisible(element);
