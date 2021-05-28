@@ -5,14 +5,14 @@ import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 import org.openqa.selenium.WebElement;
 import pages.calculator.MainPage;
-import pages.calculator.SalaryCalculator;
+import pages.calculator.SalaryCalculatorPage;
 
 import static org.assertj.core.api.Assertions.*;
 
 public class CalculatorSteps {
 
     MainPage mainPage = new MainPage();
-    SalaryCalculator salaryCalculator = new SalaryCalculator();
+    SalaryCalculatorPage salaryCalculatorPage = new SalaryCalculatorPage();
 
     @Given("I navigate to the {string} page")
     public void iNavigateToThePage(String page) {
@@ -21,7 +21,7 @@ public class CalculatorSteps {
                 mainPage.open();
                 break;
             case "Salary Calculator":
-                salaryCalculator.open();
+                salaryCalculatorPage.open();
                 break;
 
             default:
@@ -54,23 +54,23 @@ public class CalculatorSteps {
 
     @Then("I fill out {string} field with {string}")
     public void iFillOutFieldWith(String field, String text) {
-        salaryCalculator.fillOutFieldWith(field, text);
+        salaryCalculatorPage.fillOutFieldWith(field, text);
     }
 
     @Then("I select {string} in the dropdown list")
     public void iSelectInTheDropdownList(String text) {
-        WebElement perUnit = salaryCalculator.getPerUnit();
-        salaryCalculator.selectDropdownByVisibleText(perUnit, text);
+        WebElement perUnit = salaryCalculatorPage.getPerUnit();
+        salaryCalculatorPage.selectDropdownByVisibleText(perUnit, text);
     }
 
     @When("I click on the Calculate button")
     public void iClickOnTheCalculateButton() {
-        salaryCalculator.ClickCalculateButton();
+        salaryCalculatorPage.ClickCalculateButton();
     }
 
     @Then("I should see {string} in {string} field")
     public void iShouldSeeInField(String text, String field) {
-        String actualText = salaryCalculator.getTextFromField(field);
+        String actualText = salaryCalculatorPage.getTextFromField(field);
         assertThat(actualText).contains(text);
     }
 }

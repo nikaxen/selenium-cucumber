@@ -4,9 +4,9 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import pages.Page;
 
-public class SalaryCalculator extends Page {
+public class SalaryCalculatorPage extends Page {
 
-    public SalaryCalculator(){
+    public SalaryCalculatorPage(){
         setUrl("https://www.calculator.net/salary-calculator.html");
     }
 
@@ -60,7 +60,7 @@ public class SalaryCalculator extends Page {
     }
 
     public void fillOutFieldWith(WebElement element, String text){
-        clearElement(element);
+        // clearElement(element);
         waitForClickable(element);
         sendKeys(element, text);
     }

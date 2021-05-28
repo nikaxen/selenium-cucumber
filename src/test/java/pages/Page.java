@@ -71,6 +71,7 @@ public class Page {
 
     public void sendKeys(WebElement element, String text){
         waitForVisible(element);
+        element.clear();
         element.sendKeys(text);
     }
     public void sendKeys(WebElement element){
