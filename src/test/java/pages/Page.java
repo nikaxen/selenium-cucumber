@@ -112,6 +112,12 @@ public class Page {
     public void refreshPage(){
         getDriver().navigate().refresh();
     }
+    public void goToPreviousPage(){
+        getDriver().navigate().back();
+    }
+    public void goToNextPage(){
+        getDriver().navigate().forward();
+    }
 
     public void switchToIframe(WebElement element){
         new WebDriverWait(getDriver(),10).until(ExpectedConditions.frameToBeAvailableAndSwitchToIt(element));

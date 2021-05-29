@@ -60,7 +60,6 @@ public class SalaryCalculatorPage extends Page {
     }
 
     public void fillOutFieldWith(WebElement element, String text){
-        // clearElement(element);
         waitForClickable(element);
         sendKeys(element, text);
     }
